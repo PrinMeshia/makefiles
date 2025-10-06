@@ -1,0 +1,13 @@
+services:
+  angular-app:
+    build: .
+    container_name: angular-app-dev
+    ports:
+      - "4200:4200"
+      - "4000:4000"
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+    environment:
+      - NODE_ENV=development
+    command: npm run dev:ssr
